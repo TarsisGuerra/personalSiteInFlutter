@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarsis_site/body.dart';
 import 'package:tarsis_site/header.dart';
 import 'package:tarsis_site/home.dart';
 
@@ -35,7 +36,8 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.15),
           child: const Column(
-            children: [Header(), Home()],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [Header(), Home(), BodySite()],
           ),
         ),
       ),

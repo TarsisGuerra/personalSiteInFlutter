@@ -30,22 +30,38 @@ class Header extends StatelessWidget {
               children: [
                 const Text(
                   'Home',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w100),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 const Text(
                   'Web Design',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w100),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 const Text(
                   'Web Dev',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w100),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 const Text(
                   'Unity Dev',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w100),
                 )
               ],
             ),
@@ -68,7 +84,10 @@ class Header extends StatelessWidget {
                 ),
                 child: const Text(
                   'Contato',
-                  style: TextStyle(color: PaletaCores.mainCinza),
+                  style: TextStyle(
+                      color: PaletaCores.mainCinza,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             )

@@ -50,13 +50,19 @@ class _HomeState extends State<Home> {
                             height: MediaQuery.of(context).size.height * 0.01),
                         const Text(
                           'Társis César Lira Guerra',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Poppins',
+                              fontSize: 16),
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.01),
                         const Text(
                           'Físico, designer, programador e animador 3D',
-                          style: TextStyle(fontSize: 14),
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400),
                           textAlign: TextAlign.center,
                         ),
                         Padding(
@@ -93,7 +99,8 @@ class _HomeState extends State<Home> {
                             'Projetos Recentes',
                             style: TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Poppins',
                             ),
                           ),
                         ),
@@ -136,7 +143,10 @@ class _HomeState extends State<Home> {
                                   ),
                                   child: const Text(
                                     'Conferir',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w400),
                                   ),
                                 ),
                               ),
@@ -146,17 +156,20 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  // Coluna da direita
+
                   Container(
                     height: double.infinity,
                     width: MediaQuery.of(context).size.width * 0.55,
                     //decoration: const BoxDecoration(color: Colors.brown),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           'O que eu faço?',
                           style: TextStyle(
-                              fontSize: 36, fontWeight: FontWeight.normal),
+                              fontSize: 36,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400),
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.02),
@@ -176,23 +189,71 @@ class _HomeState extends State<Home> {
                             children: [
                               _buildSkillCard(
                                 context,
-                                icon: Icons.design_services,
+                                imagePath: 'assets/images/design.png',
                                 label: 'Web Design',
                               ),
                               _buildSkillCard(
                                 context,
-                                icon: Icons.language,
+                                imagePath: 'assets/images/web.png',
                                 label: 'Web Development',
                               ),
                               _buildSkillCard(
                                 context,
-                                icon: Icons.gamepad,
+                                imagePath: 'assets/images/unity.png',
                                 label: 'Unity Development',
                               ),
                               _buildSkillCard(
                                 context,
-                                icon: Icons.animation,
+                                imagePath: 'assets/images/maya.png',
                                 label: 'Maya 3D Animation',
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.04),
+                        const Text(
+                          'Minha Habilidades',
+                          style: TextStyle(
+                              fontSize: 36,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.02),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: PaletaCores.mainCinza,
+                              borderRadius: BorderRadius.circular(30)),
+                          padding: EdgeInsets.symmetric(
+                              vertical:
+                                  MediaQuery.of(context).size.height * 0.01,
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.002),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              _buildSkillCard2(
+                                context,
+                                imagePath: 'assets/images/flutterlogo.png',
+                                label: 'FLUTTER',
+                              ),
+                              _buildSkillCard2(
+                                context,
+                                imagePath: 'assets/images/unitylogo.png',
+                                label: 'UNITY',
+                              ),
+                              _buildSkillCard2(
+                                context,
+                                imagePath: 'assets/images/mayalogo.png',
+                                label: 'MAYA',
+                              ),
+                              _buildSkillCard2(
+                                context,
+                                imagePath: 'assets/images/figmalogo.png',
+                                label: 'FIGMA',
                               ),
                             ],
                           ),
@@ -204,7 +265,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildSkillCard(BuildContext context,
-      {required IconData icon, required String label}) {
+      {required String imagePath, required String label}) {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
@@ -219,9 +280,9 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                icon,
-                size: MediaQuery.of(context).size.height * 0.05,
+              Image.asset(
+                imagePath,
+                height: MediaQuery.of(context).size.height * 0.05,
                 color: Colors.white,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
@@ -230,7 +291,45 @@ class _HomeState extends State<Home> {
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: MediaQuery.of(context).size.height * 0.03,
-                    fontWeight: FontWeight.w100),
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w200),
+                textAlign: TextAlign.left,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSkillCard2(BuildContext context,
+      {required String imagePath, required String label}) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        height: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 5),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                imagePath,
+                height: MediaQuery.of(context).size.height * 0.09,
+                color: Colors.white,
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+              Text(
+                label,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: MediaQuery.of(context).size.height * 0.03,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w300),
                 textAlign: TextAlign.left,
               ),
             ],
