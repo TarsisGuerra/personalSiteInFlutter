@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tarsis_site/body.dart';
+import 'package:tarsis_site/foot.dart';
 import 'package:tarsis_site/header.dart';
 import 'package:tarsis_site/home.dart';
 
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               horizontal: MediaQuery.of(context).size.width * 0.15),
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Header(), Home(), BodySite()],
+            children: [Header(), Home(), BodySite(), FootSite()],
           ),
         ),
       ),

@@ -29,7 +29,7 @@ class Header extends StatelessWidget {
             Row(
               children: [
                 const Text(
-                  'Home',
+                  'Animação',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,

@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
                 children: [
                   // Coluna da esquerda
                   Container(
-                    height: MediaQuery.of(context).size.height,
+                    height: double.infinity,
                     width: MediaQuery.of(context).size.width * 0.13,
                     //decoration: const BoxDecoration(color: Colors.orange),
                     child: Column(
@@ -40,27 +40,24 @@ class _HomeState extends State<Home> {
                             child: Image(
                               image:
                                   const AssetImage('assets/images/tarsis.jpg'),
-                              height: MediaQuery.of(context).size.height * 0.33,
+                              height: MediaQuery.of(context).size.height * 0.30,
                               width: double.infinity,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01),
                         const Text(
                           'Társis César Lira Guerra',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Poppins',
-                              fontSize: 16),
+                              fontSize: 14),
+                          textAlign: TextAlign.center,
                         ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01),
                         const Text(
                           'Físico, designer, programador e animador 3D',
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400),
                           textAlign: TextAlign.center,
@@ -93,6 +90,8 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                         ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01),
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -104,8 +103,6 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01),
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
@@ -220,7 +217,7 @@ class _HomeState extends State<Home> {
                               fontWeight: FontWeight.w400),
                         ),
                         SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.02),
+                            height: MediaQuery.of(context).size.height * 0.01),
                         Container(
                           height: MediaQuery.of(context).size.height * 0.25,
                           width: double.infinity,
