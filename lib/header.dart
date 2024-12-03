@@ -19,8 +19,8 @@ class Header extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.01,
-                  vertical: MediaQuery.of(context).size.height * 0.02),
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                  vertical: MediaQuery.of(context).size.height * 0.025),
               child: Image(
                 image: const AssetImage('assets/images/logotarsis.png'),
                 height: MediaQuery.of(context).size.height * 0.5,
@@ -30,40 +30,45 @@ class Header extends StatelessWidget {
               children: [
                 const Text(
                   'Home',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 const Text(
                   'Web Design',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 const Text(
                   'Web Dev',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 const Text(
                   'Unity Dev',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 )
               ],
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.01,
-                  vertical: MediaQuery.of(context).size.height * 0.02),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30)),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-                  child: Text(
-                    'Contato',
-                    style:
-                        TextStyle(color: PaletaCores.mainCinza, fontSize: 18),
+                vertical: MediaQuery.of(context).size.height * 0.025,
+                horizontal: MediaQuery.of(context).size.width * 0.05,
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  print("Botão 'Conatatp' pressionado!");
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                ),
+                child: const Text(
+                  'Contato',
+                  style: TextStyle(color: PaletaCores.mainCinza),
                 ),
               ),
             )

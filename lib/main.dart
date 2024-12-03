@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tarsis_site/header.dart';
+import 'package:tarsis_site/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,11 +29,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.15),
-      child: const Column(
-        children: [Header()],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.15),
+          child: const Column(
+            children: [Header(), Home()],
+          ),
+        ),
       ),
     );
   }
