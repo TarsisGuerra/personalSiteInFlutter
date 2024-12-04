@@ -31,14 +31,27 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isTablet = screenWidth >= 600 && screenWidth < 1250;
+    final isMenor = screenWidth < 780;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.15),
-          child: const Column(
+              horizontal: isTablet
+                  ? screenWidth * 0.08
+                  : isMenor
+                      ? screenWidth * 0.01
+                      : screenWidth * 0.15),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Header(), Home(), BodySite(), FootSite()],
+            children: [
+              Header(),
+              const Home(),
+              const BodySite(),
+              const FootSite()
+            ],
           ),
         ),
       ),

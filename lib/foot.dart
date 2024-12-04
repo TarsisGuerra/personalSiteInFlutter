@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media_buttons/social_media_button.dart';
 import 'package:tarsis_site/useful/paleta.dart';
 
 class FootSite extends StatefulWidget {
@@ -11,11 +12,15 @@ class FootSite extends StatefulWidget {
 class _FootSiteState extends State<FootSite> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isTablet = screenWidth >= 780 && screenWidth < 1250;
+    final isMenor = screenWidth < 780;
     return Padding(
       padding: EdgeInsets.symmetric(
           vertical: MediaQuery.of(context).size.height * 0.05),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.2,
+        height: MediaQuery.of(context).size.height * 0.25,
         width: double.maxFinite,
         decoration: BoxDecoration(
             color: PaletaCores.mainCinza,
@@ -23,8 +28,18 @@ class _FootSiteState extends State<FootSite> {
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
-              width: MediaQuery.of(context).size.width * 0.12,
+              //color: Colors.red,
+              padding: EdgeInsets.symmetric(
+                horizontal: isMenor
+                    ? MediaQuery.of(context).size.height * 0.005
+                    : MediaQuery.of(context).size.height * 0.05,
+                vertical: MediaQuery.of(context).size.height * 0.025,
+              ),
+              width: isTablet
+                  ? screenWidth * 0.2
+                  : isMenor
+                      ? screenWidth * 0.4
+                      : MediaQuery.of(context).size.width * 0.16,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,59 +48,81 @@ class _FootSiteState extends State<FootSite> {
                     image: const AssetImage('assets/images/logotarsis.png'),
                     height: MediaQuery.of(context).size.height * 0.07,
                   ),
-                  const Text(
+                  Text(
                     'Társis César Lira Guerra',
                     style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontFamily: 'Poppins',
-                        fontSize: 10,
+                        fontSize: isTablet
+                            ? screenHeight * 0.015
+                            : isMenor
+                                ? screenHeight * 0.013
+                                : screenHeight * 0.015,
                         color: Colors.white),
                   ),
                   //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   Row(
                     children: [
-                      Image(
-                        image: const AssetImage('assets/images/git.png'),
-                        height: MediaQuery.of(context).size.height * 0.025,
+                      SocialMediaButton.github(
+                        url: "https://github.com/TarsisGuerra",
                         color: Colors.white,
+                        size: isTablet
+                            ? screenWidth * 0.016
+                            : isMenor
+                                ? screenHeight * 0.03
+                                : screenWidth * 0.015,
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.01),
-                      Image(
-                        image: const AssetImage('assets/images/ig.png'),
-                        height: MediaQuery.of(context).size.height * 0.025,
+                      SocialMediaButton.instagram(
+                        url: "https://www.instagram.com/tarsislira/",
                         color: Colors.white,
+                        size: isTablet
+                            ? screenWidth * 0.016
+                            : isMenor
+                                ? screenHeight * 0.03
+                                : screenWidth * 0.015,
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.01),
-                      Image(
-                        image: const AssetImage('assets/images/in.png'),
-                        height: MediaQuery.of(context).size.height * 0.025,
+                      SocialMediaButton.linkedin(
+                        url: "https://www.linkedin.com/in/tarsisguerra/",
                         color: Colors.white,
+                        size: isTablet
+                            ? screenWidth * 0.016
+                            : isMenor
+                                ? screenHeight * 0.03
+                                : screenWidth * 0.015,
                       ),
                     ],
                   ),
                 ],
               ),
             ),
+            SizedBox(width: screenWidth * 0.01),
             Container(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.03),
+              //color: Colors.yellow,
+              padding: EdgeInsets.symmetric(
+                  vertical: MediaQuery.of(context).size.height * 0.035),
               height: double.infinity,
-              width: MediaQuery.of(context).size.width * 0.3,
+              width: isMenor
+                  ? screenHeight * 0.25
+                  : MediaQuery.of(context).size.width * 0.3,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'E agora?',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: isMenor
+                            ? screenHeight * 0.015
+                            : screenHeight * 0.02,
                         fontFamily: 'Poppins'),
                   ),
-                  const Text(
+                  Text(
                     'Sinta-se livre para entrar em contato e vamos iniciar um projeto juntos!',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: isMenor
+                            ? screenHeight * 0.015
+                            : screenHeight * 0.02,
                         fontFamily: 'Poppins'),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
@@ -95,13 +132,12 @@ class _FootSiteState extends State<FootSite> {
                         Icons.email_outlined,
                         color: Colors.white,
                       ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.005),
-                      const Text(
+                      SizedBox(width: screenWidth * 0.005),
+                      Text(
                         'tarsisguerra@hotmail.com',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
+                            fontSize: screenHeight * 0.015,
                             fontFamily: 'Poppins'),
                       ),
                     ],
